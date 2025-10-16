@@ -8,7 +8,7 @@ export default function Home() {
   const [filter, setFilter] = useState('all');
   const [darkMode, setDarkMode] = useState(false);
 
-  // โหลดข้อมูลจาก localStorage เมื่อเริ่มต้น
+  
   useEffect(() => {
     const savedTodos = localStorage.getItem('todos');
     const savedDarkMode = localStorage.getItem('darkMode');
@@ -23,7 +23,7 @@ export default function Home() {
   }, []);
 
 
-  // บันทึกข้อมูลลง localStorage ทุกครั้งที่ todos เปลี่ยน
+  
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
@@ -35,7 +35,7 @@ export default function Home() {
   }, [darkMode]);
 
 
-  // เพิ่มงานใหม่
+  // add new task
   const addTodo = () => {
     if (inputValue.trim() === '') return;
 
@@ -57,13 +57,13 @@ export default function Home() {
   };
 
 
-  // ลบงาน
+  // delete
   const deleteTodo = (id) => {
     setTodos(todos.filter(todo => todo.id !== id));
   };
 
 
-  // สลับสถานะงาน
+  // status of task
   const toggleComplete = (id) => {
     setTodos(todos.map(todo =>
       todo.id === id ? { ...todo, completed: !todo.completed } : todo
@@ -71,7 +71,7 @@ export default function Home() {
   };
 
 
-  // กรองรายการตาม filter
+  //  filter
   const filteredTodos = todos.filter(todo => {
     if (filter === 'done') return todo.completed;
     if (filter === 'notDone') return !todo.completed;
@@ -79,7 +79,7 @@ export default function Home() {
   });
 
 
-  // จัดการ Enter key
+  //  Enter key for add task
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       addTodo();
@@ -122,7 +122,7 @@ export default function Home() {
               type="text"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              onKeyPress={handleKeyPress}
+              onKeyDown={handleKeyPress}
               placeholder="add new task..."
               className={`flex-1 px-4 py-3 rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all ${
                 darkMode 

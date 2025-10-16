@@ -51,9 +51,6 @@ open browser at => [http://localhost:3000]
 *** สิ่งที่อยากปรับปรุงเพิ่มเติม ***
 
 - Animation เมื่อเพิ่ม/ลบ items
-- Priority levels (High/Medium/Low)
 - UI ที่สวยงามมากขึ้น
 
 
-- **Live Demo**: https://todo-list2-beta-seven.vercel.app/
-- **GitHub Repository**: https://github.com/chickky2408/Todo-List

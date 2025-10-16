@@ -1,5 +1,5 @@
 
-- Todo List Web-Application -
+### Todo List Web-Application ###
 
 *** Installation ***
 
@@ -12,12 +12,12 @@ cd todo-list-app
 
 2. Install dependencies
 
-npm install
+- npm install
 
 
 3. Run development server
 
-npm run dev
+- npm run dev
 
 
 open browser at => [http://localhost:3000]

@@ -165,7 +165,7 @@ export default function Home() {
         </div>
 
 
-        {/* Stats */}
+        {/* All, Done , Not Done */}
 
         <div className={`p-4 rounded-lg mb-6 ${
           darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'
@@ -198,9 +198,9 @@ export default function Home() {
               darkMode ? 'bg-gray-800 text-gray-400' : 'bg-white text-gray-500'
             }`}>
               <p className="text-xl">
-                {filter === 'done' && '🎉 ยังไม่มีงานที่เสร็จ'}
-                {filter === 'notDone' && '✨ ไม่มีงานค้างอยู่'}
-                {filter === 'all' && '📋 ยังไม่มีรายการงาน'}
+                {filter === 'done' && '🎉 No completed tasks yet'}
+                {filter === 'notDone' && '✨ No pending tasks'}
+                {filter === 'all' && '📋 No tasks yet'}
               </p>
             </div>
           ) : (

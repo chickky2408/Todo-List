@@ -55,16 +55,5 @@ open browser at => [http://localhost:3000]
 - UI ที่สวยงามมากขึ้น
 
 
-*** Tech Stack ***
-
-- Framework: Next.js 13+ 
-- Language: JavaScript
-- Styling: Tailwind CSS
-- State Management: React Hooks (useState, useEffect)
-- Data Persistence: localStorage
-- Deployment: Vercel
-
-
-
 - **Live Demo**: https://todo-list2-beta-seven.vercel.app/
 - **GitHub Repository**: https://github.com/chickky2408/Todo-List

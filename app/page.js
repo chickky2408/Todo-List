@@ -22,15 +22,18 @@ export default function Home() {
     }
   }, []);
 
+
   // บันทึกข้อมูลลง localStorage ทุกครั้งที่ todos เปลี่ยน
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
 
+
   // บันทึก dark mode
   useEffect(() => {
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
   }, [darkMode]);
+
 
   // เพิ่มงานใหม่
   const addTodo = () => {
@@ -53,10 +56,12 @@ export default function Home() {
     setInputValue('');
   };
 
+
   // ลบงาน
   const deleteTodo = (id) => {
     setTodos(todos.filter(todo => todo.id !== id));
   };
+
 
   // สลับสถานะงาน
   const toggleComplete = (id) => {
@@ -65,12 +70,14 @@ export default function Home() {
     ));
   };
 
+
   // กรองรายการตาม filter
   const filteredTodos = todos.filter(todo => {
     if (filter === 'done') return todo.completed;
     if (filter === 'notDone') return !todo.completed;
     return true;
   });
+
 
   // จัดการ Enter key
   const handleKeyPress = (e) => {
@@ -84,12 +91,14 @@ export default function Home() {
       darkMode ? 'bg-gray-900' : 'bg-gradient-to-br from-blue-50 to-indigo-100'
     }`}>
       <div className="container mx-auto px-4 py-8 max-w-2xl">
+
         {/* Header */}
+
         <div className="flex justify-between items-center mb-8">
           <h1 className={`text-4xl font-bold ${
             darkMode ? 'text-white' : 'text-gray-800'
           }`}>
-            📝 Todo List
+            👨🏻‍💻 Todo List
           </h1>
           <button
             onClick={() => setDarkMode(!darkMode)}
@@ -104,6 +113,7 @@ export default function Home() {
         </div>
 
         {/* Input Section */}
+
         <div className={`p-6 rounded-xl shadow-lg mb-6 ${
           darkMode ? 'bg-gray-800' : 'bg-white'
         }`}>
@@ -113,7 +123,7 @@ export default function Home() {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="เพิ่มงานใหม่..."
+              placeholder="add new task..."
               className={`flex-1 px-4 py-3 rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all ${
                 darkMode 
                   ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' 
@@ -124,17 +134,19 @@ export default function Home() {
               onClick={addTodo}
               className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg transition-all transform hover:scale-105 active:scale-95"
             >
-              เพิ่ม
+              ADD
             </button>
           </div>
         </div>
 
+
         {/* Filter Buttons */}
+
         <div className="flex gap-2 mb-6">
           {[
-            { value: 'all', label: 'ทั้งหมด' },
-            { value: 'notDone', label: 'ยังไม่เสร็จ' },
-            { value: 'done', label: 'เสร็จแล้ว' }
+            { value: 'all', label: 'All' },
+            { value: 'notDone', label: 'Not Done' },
+            { value: 'done', label: 'Done' }
           ].map(({ value, label }) => (
             <button
               key={value}
@@ -152,31 +164,34 @@ export default function Home() {
           ))}
         </div>
 
+
         {/* Stats */}
+
         <div className={`p-4 rounded-lg mb-6 ${
           darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'
         }`}>
           <div className="flex justify-around text-center">
             <div>
               <div className="text-2xl font-bold text-indigo-600">{todos.length}</div>
-              <div className="text-sm opacity-75">ทั้งหมด</div>
+              <div className="text-sm opacity-75">All</div>
             </div>
             <div>
               <div className="text-2xl font-bold text-green-600">
                 {todos.filter(t => t.completed).length}
               </div>
-              <div className="text-sm opacity-75">เสร็จแล้ว</div>
+              <div className="text-sm opacity-75">Done</div>
             </div>
             <div>
               <div className="text-2xl font-bold text-orange-600">
                 {todos.filter(t => !t.completed).length}
               </div>
-              <div className="text-sm opacity-75">ค้างอยู่</div>
+              <div className="text-sm opacity-75">Not Done</div>
             </div>
           </div>
         </div>
 
         {/* Todo List */}
+
         <div className="space-y-3">
           {filteredTodos.length === 0 ? (
             <div className={`text-center py-12 rounded-xl ${
@@ -219,7 +234,7 @@ export default function Home() {
                     onClick={() => deleteTodo(todo.id)}
                     className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-all transform hover:scale-105 active:scale-95"
                   >
-                    ลบ
+                    Delete
                   </button>
                 </div>
               </div>

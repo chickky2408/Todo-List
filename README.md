@@ -48,9 +48,5 @@ open browser at => [http://localhost:3000]
 - ✅  Dark Mode: สลับระหว่าง Light/Dark theme พร้อมบันทึกใน localStorage
 
 
-*** สิ่งที่อยากปรับปรุงเพิ่มเติม ***
-
-- Animation เมื่อเพิ่ม/ลบ items
-- UI ที่สวยงามมากขึ้น
 
 
